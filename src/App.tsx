@@ -1,16 +1,23 @@
 import React, { ChangeEvent, FC, useState } from "react";
 import "./app.css";
+import { ITask } from "./interfaces";
+
 const App: FC = () => {
   const [task, setTask] = useState<string>("");
   const [deadline, setDeadline] = useState<number>(0);
-  const [todolist, setTodoList] = useState([]);
+  const [todolist, setTodoList] = useState<ITask[]>([]);
 
-  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (event: ChangeEvent<HTMLInputElement>): void => {
     if (event.target.name === "task") {
       setTask(event.target.value);
     } else {
       setDeadline(Number(event.target.value));
     }
+  };
+
+  const addTask = (): void => {
+    const newTask = { taskName: task, deadline: deadline };
+    setTodoList([...todolist, newTask]);
   };
 
   return (
@@ -30,7 +37,7 @@ const App: FC = () => {
             onChange={handleChange}
           />
         </div>
-        <button> Add Task </button>
+        <button onClick={addTask}> Add Task </button>
       </div>
       <div className="todolist"></div>
     </div>
