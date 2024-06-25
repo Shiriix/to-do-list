@@ -51,5 +51,49 @@ body{
 .todolist {
     flex: 70%;
     width: 100%;
+    display: flex;
+    align-items: center;
+    padding-top: 50px;
+    flex-direction: column;
+
+}
+
+.task{
+    width:31.25rem ;
+    height:3.125rem ;
+    display: flex;
+    color: black;
+    margin: 1rem;
+}
+
+.task .content {
+    flex: 80%;
+    height: 100% ;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.task .content span{
+    display: grid;
+    place-items: center;
+    border: 1px solid white;
+    width: 100%;
+    height: 100%;
+    font-size: 1.125rem;
+    border-right: none;
+    background-color: aliceblue;
+
+}
+
+.task button {
+    flex: 20%;
+    height: 100%;
+    border: none;
+    background-color:lavender;
+    border-top-right-radius: 0.5rem;
+    border-bottom-right-radius: 0.5rem;
+    color: white;
+    cursor: pointer;
 
 }
